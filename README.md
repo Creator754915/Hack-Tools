@@ -1,2 +1,8 @@
 # Hack-Tools
-Use hacks tools, the version is the number 1
+how use:
+
+1) Download the repositiry
+
+2) Run the file: 'hack-main.sh'
+
+3) Enjoy of the project
