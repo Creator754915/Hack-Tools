@@ -1,11 +1,11 @@
 # Hack-Tools
 how use:
 
-1) Download the repostory with this: gît clone https://github.com/Creator754915/Hacks-Tools
+1) Download the repostory with this: #git clone https://github.com/Creator754915/Hacks-Tools
 
-2) Open the fonder with: cd Hacks-Tools
+2) Open the fonder with: #cd Hacks-Tools
 
-3) Run the file: hack-main.sh
+3) Run the file: #bash hack-main.sh
 
 4) Use the passward: Admin01
 
