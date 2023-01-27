@@ -1,5 +1,11 @@
 # Hack-Tools
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+# Function possible:
 
+- [x] Ping IP or Web Site
+- [ ] Create Server
+- [ ] Create folders
+- [ ] Create fake Web Site
 
 # Window/Linux:
 
