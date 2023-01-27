@@ -2,7 +2,6 @@
 
 # Preview and Functions:
 
-Preview
 ![This it's an image](https://raw.githubusercontent.com/Creator754915/Hack-Tools/main/info/preview.png)
 
 Functions:
