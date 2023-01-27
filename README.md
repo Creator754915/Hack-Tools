@@ -2,7 +2,7 @@
 
 ## Preview and Functions:
 
-![This it's an image](https://raw.githubusercontent.com/Creator754915/Hack-Tools/main/info/preview.png)
+![This it's an image](https://raw.githubusercontent.com/Creator754915/Hack-Tools/main/preview.png)
 
 **Functions**:
 - [x] Ping IP or Web Site
