@@ -4,7 +4,7 @@
 
 ![This it's an image](https://raw.githubusercontent.com/Creator754915/Hack-Tools/main/info/preview.png)
 
-Functions:
+**Functions**:
 - [x] Ping IP or Web Site
 - [ ] Create Server
 - [ ] Create folders
@@ -18,7 +18,7 @@ Functions:
 
 3) Run the file: ```bash hack-main.sh```
 
-4) Use the password: ```Admin01```
+4) Use the **password**: ```Admin01```
 
 5) Enjoy of the project 😄
 
@@ -31,6 +31,6 @@ Functions:
 
 3) Run the file: ```hacks-main```
 
-4) Use the password: ```Admin01```
+4) Use the **password**: ```Admin01```
 
 5) Enjoy of the project 😄
