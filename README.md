@@ -1,11 +1,15 @@
 # Hack-Tools
-![This is an image](https://raw.githubusercontent.com/Creator754915/Hack-Tools/main/info/preview.png)
-# Function possible:
 
-- [x] Ping IP or Web Site
-- [ ] Create Server
-- [ ] Create folders
-- [ ] Create fake Web Site
+# Preview and Functions:
+
+Preview
+(https://raw.githubusercontent.com/Creator754915/Hack-Tools/main/info/preview.png)
+
+Functions:
+1 - [x] Ping IP or Web Site
+2 - [ ] Create Server
+3 - [ ] Create folders
+4 - [ ] Create fake Web Site
 
 # Window/Linux:
 
