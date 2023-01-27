@@ -6,8 +6,20 @@ REDBG="$(printf '\033[41m')"  GREENBG="$(printf '\033[42m')"  ORANGEBG="$(printf
 MAGENTABG="$(printf '\033[45m')"  CYANBG="$(printf '\033[46m')"  WHITEBG="$(printf '\033[47m')" BLACKBG="$(printf '\033[40m')"
 RESETBG="$(printf '\e[0m\n')"
 
-# Ping function
+install_php() {
+  curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh -o install_nvm.sh
+  bash install_nvm.sh
+  command -v nvm
+}
 
+# Localhost server
+localhost_server() {
+
+  php -S 127.0.0.1:8000 router.php
+
+}
+
+# Ping function
 ping_func() {
 
   read -p "${RED}[${RESETBG}-${RED}]${GREEN}Web Address:" site
@@ -15,19 +27,54 @@ ping_func() {
 
 }
 
+# About 
+about() {
 
-# Admin panel
+	echo ${GREEN} Author   ${RED}:  ${RED}[ ${ORANGE}CREATOR754915 ${RED}]
+	echo ${GREEN} Github   ${RED}:  ${CYAN}https://github.com/Creator754915
+  echo ${GREEN} Version  ${RED}:  ${ORANGE}${__version__}
+	echo ${WHITE} ${REDBG}Warning:${RESETBG}
+	echo ${CYAN}  This Tool is made for educational purpose 
+	echo	  only ${RED}!${WHITE}${CYAN} Author will not be responsible for 
+	echo	  any misuse of this toolkit ${RED}!${WHITE}
+		
+	echo	${WHITE} ${CYANBG}Special Thanks to:${RESETBG}
+	echo	${RED}[${WHITE}00${RED}]${ORANGE} Main Menu     ${RED}[${WHITE}99${RED}]${ORANGE} Exit
+  
+  read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
+	case $REPLY in 
+		99)
+			msg_exit;;
+		0 | 00)
+			echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Returning to main menu..."
+			{ sleep 1; main_menu; };;
+		*)
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
+			{ sleep 1; about; };;
+	esac
+}
 
+# Exit menu
+msg_exit() {
+	echo -e "${GREENBG}${BLACK} Thank you for using this tool. Have a good day.${RESETBG}\n"
+	{ reset_color; exit 0; }
+}
+
+# Main menu
 main_menu() {
 	echo ${RED}[${RESETBG}01${RED}]${ORANGE} Ping an IP${RESETBG}
   echo ${RED}[${RESETBG}02${RED}]${ORANGE} Create server${RESETBG}
   echo ${RED}[${RESETBG}03${RED}]${ORANGE} Create folder${RESETBG}
   echo ${RED}[${RESETBG}04${RED}]${ORANGE} Fake sites${RESETBG}
   echo ${RED}[${RESETBG}05${RED}]${ORANGE} Coming Soon${RESETBG}
+  echo ${RED}[${RESETBG}00${RED}]${ORANGE} About${RESETBG}
+  echo ${RED}[${RESETBG}99${RED}]${ORANGE} Exit${RESETBG}
 	
 	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
   
   case $REPLY in 
+    0 | 00)
+      about;;
 		1 | 01)
 			echo PING IP
       ping_func;;
@@ -36,11 +83,13 @@ main_menu() {
 		3 | 03)
 			echo grsd;;
 		4 | 04)
-			website="microsoft"
-			mask='https://fake-link-example@is.gd/9ombMy'
-      echo $website: $mask;;
+			echo ${ORANGE}Wait...
+      sleep 5
+      localhost_server;;
 		5 | 05)
       echo Coming Soon...;;
+    99)
+      msg_exit;;
     *)
 			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
 			{ sleep 1; main_menu; };;
@@ -49,11 +98,9 @@ main_menu() {
 
 }
 # Login
-echo ${RED}Hello, who am I talking to?${RESETBG}
 read -p 'Username: ' uservar
 read -sp 'Password: ' passvar
-echo 
-echo Thank you $uservar we now have your login details
+echo
 
 if [[ "$passvar" == "Admin01" ]]; then
     echo ${MAGENTA}Hello $uservar
