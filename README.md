@@ -8,7 +8,7 @@
 - [x] Ping IP or Web Site
 - [ ] Create Server
 - [ ] Create folders
-- [ ] Create fake Web Site
+- [x] Create fake Web Site
 
 ## Window/Linux:
 
