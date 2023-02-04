@@ -22,9 +22,33 @@ localhost_server() {
 # Ping function
 ping_func() {
 
-  read -p "${RED}[${RESETBG}-${RED}]${GREEN}Web Address:" site
+  read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Web Address:" site
   ping $site -n 100
 
+}
+
+# Create folder
+create_folders() {
+  echo
+  read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Number of folders:" n_fold
+  read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Name of folders:" name
+  read -p "${GREEN}Do you want create ${RED}$n_fold${GREEN} folders with the name ${RED}$name${GREEN} [Y/n]:" choice
+
+  if [ $choice == 'Y' ]
+  then
+    counter=1
+    while [ $counter -le $n_fold ]
+    do
+      mkdir $name$counter
+      ((counter++))
+    done
+    { sleep 1; main_menu; }
+  elif [ $choice == 'n']
+  then
+    echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Returning to main menu..."
+			{ sleep 1; main_menu; }
+  fi
+  
 }
 
 # About 
@@ -32,13 +56,12 @@ about() {
 
 	echo ${GREEN} Author   ${RED}:  ${RED}[ ${ORANGE}CREATOR754915 ${RED}]
 	echo ${GREEN} Github   ${RED}:  ${CYAN}https://github.com/Creator754915
-  echo ${GREEN} Version  ${RED}:  ${ORANGE}${__version__}
+  echo ${GREEN} Version  ${RED}:  ${ORANGE}Alpha-1.5.02
 	echo ${WHITE} ${REDBG}Warning:${RESETBG}
 	echo ${CYAN}  This Tool is made for educational purpose 
 	echo	  only ${RED}!${WHITE}${CYAN} Author will not be responsible for 
 	echo	  any misuse of this toolkit ${RED}!${WHITE}
 		
-	echo	${WHITE} ${CYANBG}Special Thanks to:${RESETBG}
 	echo	${RED}[${WHITE}00${RED}]${ORANGE} Main Menu     ${RED}[${WHITE}99${RED}]${ORANGE} Exit
   
   read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
@@ -62,9 +85,10 @@ msg_exit() {
 
 # Main menu
 main_menu() {
+  echo 
 	echo ${RED}[${RESETBG}01${RED}]${ORANGE} Ping an IP${RESETBG}
   echo ${RED}[${RESETBG}02${RED}]${ORANGE} Create server${RESETBG}
-  echo ${RED}[${RESETBG}03${RED}]${ORANGE} Create folder${RESETBG}
+  echo ${RED}[${RESETBG}03${RED}]${ORANGE} Create folders${RESETBG}
   echo ${RED}[${RESETBG}04${RED}]${ORANGE} Fake sites${RESETBG}
   echo ${RED}[${RESETBG}05${RED}]${ORANGE} Coming Soon${RESETBG}
   echo ${RED}[${RESETBG}00${RED}]${ORANGE} About${RESETBG}
@@ -81,7 +105,7 @@ main_menu() {
 		2 | 02)
 			echo CREATE ;;
 		3 | 03)
-			echo grsd;;
+			create_folders;;
 		4 | 04)
 			echo ${ORANGE}Wait...
       sleep 5
