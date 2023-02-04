@@ -6,9 +6,9 @@
 
 **Functions**:
 - [x] Ping IP or Web Site
-- [ ] Create Server
-- [ ] Create folders
 - [x] Create fake Web Site
+- [ ] Create Server
+- [ ] Create folder
 
 ## Window/Linux:
 
