@@ -91,7 +91,7 @@ about() {
 
 	echo ${GREEN} Author   ${RED}:  ${RED}[ ${ORANGE}CREATOR754915 ${RED}]
 	echo ${GREEN} Github   ${RED}:  ${CYAN}https://github.com/Creator754915
-  echo ${GREEN} Version  ${RED}:  ${ORANGE}Alpha-1.5.02
+  echo ${GREEN} Version  ${RED}:  ${ORANGE}Alpha-1.6
 	echo ${WHITE} ${REDBG}Warning:${RESETBG}
 	echo ${CYAN}  This Tool is made for educational purpose 
 	echo	  only ${RED}!${WHITE}${CYAN} Author will not be responsible for 
