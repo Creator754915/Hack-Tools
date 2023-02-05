@@ -6,16 +6,11 @@ REDBG="$(printf '\033[41m')"  GREENBG="$(printf '\033[42m')"  ORANGEBG="$(printf
 MAGENTABG="$(printf '\033[45m')"  CYANBG="$(printf '\033[46m')"  WHITEBG="$(printf '\033[47m')" BLACKBG="$(printf '\033[40m')"
 RESETBG="$(printf '\e[0m\n')"
 
-install_php() {
-  curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh -o install_nvm.sh
-  bash install_nvm.sh
-  command -v nvm
-}
 
 # Localhost server
-localhost_server() {
-
-  php -S 127.0.0.1:8000 router.php
+run_server() {
+  python -m http.server
+  python server.py
 
 }
 
@@ -28,26 +23,66 @@ ping_func() {
 }
 
 # Create folder
-create_folders() {
+folders_manager() {
+  create_folders() {
+    read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Number of folders:" n_fold
+    read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Name of folders:" name
+    read -p "${GREEN}Do you want create ${RED}$n_fold${GREEN} folders with the name ${RED}$name${GREEN} [Y/n]:" choice
+  
+    if [ $choice == 'Y' ]
+    then
+      counter=1
+      while [ $counter -le $n_fold ]
+      do
+        mkdir $name$counter
+        ((counter++))
+      done
+      { sleep 1; main_menu; }
+    elif [ $choice == 'n']
+    then
+      echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Returning to main menu..."
+  			{ sleep 1; main_menu; }
+    fi
+  }
+  delete_folder() {
+    read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Name of folder:" fold
+    read -p "${GREEN}Do you want delete the folder ${RED}$fodl${GREEN} [Y/n]:" choice
+  
+    if [ $choice == 'Y' ]
+    then
+      rmdir $fold
+      { sleep 1; main_menu; }
+    elif [ $choice == 'n']
+    then
+      echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Returning to main menu..."
+  			{ sleep 1; main_menu; }
+    fi
+  }
   echo
-  read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Number of folders:" n_fold
-  read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Name of folders:" name
-  read -p "${GREEN}Do you want create ${RED}$n_fold${GREEN} folders with the name ${RED}$name${GREEN} [Y/n]:" choice
-
-  if [ $choice == 'Y' ]
-  then
-    counter=1
-    while [ $counter -le $n_fold ]
-    do
-      mkdir $name$counter
-      ((counter++))
-    done
-    { sleep 1; main_menu; }
-  elif [ $choice == 'n']
-  then
-    echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Returning to main menu..."
-			{ sleep 1; main_menu; }
-  fi
+  echo ${RED}[${RESETBG}00${RED}]${ORANGE} Main menu${RESETBG}
+	echo ${RED}[${RESETBG}01${RED}]${ORANGE} Create folders${RESETBG}
+  echo ${RED}[${RESETBG}02${RED}]${ORANGE} Rename folders${RESETBG}
+  echo ${RED}[${RESETBG}03${RED}]${ORANGE} Delete folders${RESETBG}
+  echo ${RED}[${WHITE}99${RED}]${ORANGE} Exit
+  
+  read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
+  case $REPLY in 
+		99)
+			msg_exit;;
+		0 | 00)
+			echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Returning to main menu..."
+			{ sleep 1; main_menu; };;
+    01 | 1)
+      create_folders;;
+    02 | 2)
+      echo fdsf;;
+    03 | 3)
+      delete_folder;;
+		*)
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
+			{ sleep 1; folders_manager; };;
+	esac
+  
   
 }
 
@@ -85,13 +120,14 @@ msg_exit() {
 
 # Main menu
 main_menu() {
-  echo 
+  echo
+  echo ${RED}[${RESETBG}00${RED}]${ORANGE} About${RESETBG}
 	echo ${RED}[${RESETBG}01${RED}]${ORANGE} Ping an IP${RESETBG}
   echo ${RED}[${RESETBG}02${RED}]${ORANGE} Create server${RESETBG}
-  echo ${RED}[${RESETBG}03${RED}]${ORANGE} Create folders${RESETBG}
+  echo ${RED}[${RESETBG}03${RED}]${ORANGE} Folders Manager${RESETBG}
   echo ${RED}[${RESETBG}04${RED}]${ORANGE} Fake sites${RESETBG}
   echo ${RED}[${RESETBG}05${RED}]${ORANGE} Coming Soon${RESETBG}
-  echo ${RED}[${RESETBG}00${RED}]${ORANGE} About${RESETBG}
+  
   echo ${RED}[${RESETBG}99${RED}]${ORANGE} Exit${RESETBG}
 	
 	read -p "${RED}[${WHITE}-${RED}]${GREEN} Select an option : ${BLUE}"
@@ -105,13 +141,14 @@ main_menu() {
 		2 | 02)
 			echo CREATE ;;
 		3 | 03)
-			create_folders;;
+			folders_manager;;
 		4 | 04)
 			echo ${ORANGE}Wait...
       sleep 5
-      localhost_server;;
+      run_server;;
 		5 | 05)
-      echo Coming Soon...;;
+      echo Coming Soon...
+      { sleep 1; main_menu; };;
     99)
       msg_exit;;
     *)
