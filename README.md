@@ -1,5 +1,15 @@
 # Hack-Tools
 
+
+##Updates:
+
+Alpha-1.5.02:
+  1) Create folders add
+  2) Bugs fixed
+ 
+Alpha-1.5:
+  1) Fake server add
+
 ## Preview and Functions:
 
 ![Coming soon...](https://raw.githubusercontent.com/Creator754915/Hack-Tools/main/preview.png)
