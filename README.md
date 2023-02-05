@@ -3,11 +3,14 @@
 
 ## Updates:
 
-Alpha-1.5.02:
+**Alpha-1.6:**
+  1) Folder Manger add
+
+**Alpha-1.5.02**:
   1) Create folders add
   2) Bugs fixed
  
-Alpha-1.5:
+**Alpha-1.5**:
   1) Fake server add
 
 ## Preview and Functions:
