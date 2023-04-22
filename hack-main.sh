@@ -9,16 +9,41 @@ RESETBG="$(printf '\e[0m\n')"
 
 # Localhost server
 run_server() {
+
   python -m http.server
   python server.py
 
 }
 
 # Ping function
-ping_func() {
+pingIng() {
+	
+	echo ${RED}[${RESETBG}00${RED}]${ORANGE}Main Menu 
+	echo ${RED}[${RESETBG}01${RED}]${ORANGE}Attack any site
+	echo ${RED}[${RESETBG}02${RED}]${ORANGE}Attaque Auto
+	echo ${RED}[${RESETBG}99${RED}]${ORANGE}Exit
 
-  read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Web Address:" site
-  ping $site -n 100
+	read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Enter a number:"
+ 
+	case $REPLY in 
+		99)
+			msg_exit;;
+		0 | 00)
+			echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Returning to main menu..."
+			{ sleep 1; main_menu; };;
+		01 | 1)
+			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Web Address:" site
+			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Number of repeating:" number
+			ping %site% -l %number%;;
+		02 | 2)
+			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Web Address:" site
+			echo Attaque dans 5 secondes
+			ping %site% -l 100;;
+			
+		*)
+			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
+			{ sleep 1; pingIng; };;
+	esac
 
 }
 
@@ -122,7 +147,7 @@ msg_exit() {
 main_menu() {
   echo
   echo ${RED}[${RESETBG}00${RED}]${ORANGE} About${RESETBG}
-	echo ${RED}[${RESETBG}01${RED}]${ORANGE} Ping an IP${RESETBG}
+     echo ${RED}[${RESETBG}01${RED}]${ORANGE} PingIng${RESETBG}
   echo ${RED}[${RESETBG}02${RED}]${ORANGE} Create server${RESETBG}
   echo ${RED}[${RESETBG}03${RED}]${ORANGE} Folders Manager${RESETBG}
   echo ${RED}[${RESETBG}04${RED}]${ORANGE} Fake sites${RESETBG}
@@ -137,7 +162,7 @@ main_menu() {
       about;;
 		1 | 01)
 			echo PING IP
-      ping_func;;
+      pingIng;;
 		2 | 02)
 			echo CREATE ;;
 		3 | 03)
@@ -158,6 +183,7 @@ main_menu() {
 	esac
 
 }
+
 # Login
 read -p 'Username: ' uservar
 read -sp 'Password: ' passvar
@@ -165,12 +191,9 @@ echo
 
 if [[ "$passvar" == "Admin01" ]]; then
     echo ${MAGENTA}Hello $uservar
-    (
-    echo User:$uservar
-    echo Password:$passvar 
-    )> log.txt
     echo 
     main_menu
 else
     echo Wrong login, only admin can use this
+	
 fi
