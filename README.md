@@ -5,6 +5,10 @@ This Tool is made for **educational** purpose only !
 
 ## Updates:
 
+**Alpha-1.7.2**
+  1) Router.php remplace by ```server.py```
+  2) New module add: ```PingIng```
+
 **Alpha-1.6:**
   1) Folder Manger add
 
@@ -20,10 +24,10 @@ This Tool is made for **educational** purpose only !
 ![Coming soon...](https://raw.githubusercontent.com/Creator754915/Hack-Tools/main/preview.png)
 
 **Functions**:
-- [x] Ping IP or Web Site
-- [x] Create fake Web Site
+- [x] Ping Module
+- [ ] Create Phishing Page
 - [x] Create folders
-- [ ] Create server
+- [x] Create server
 
 ## Window/Linux:
 
