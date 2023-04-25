@@ -21,7 +21,7 @@ This Tool is made for **educational** purpose only !
 
 ## Preview and Functions:
 
-![Index.html preview](https://raw.githubusercontent.com/Creator754915/Hack-Tools/main/preview.png)
+![Hack-Tools Preview](https://raw.githubusercontent.com/Creator754915/Hack-Tools/main/preview.png)
 
 **Functions**:
 - [x] Ping Module
