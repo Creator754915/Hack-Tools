@@ -10,8 +10,16 @@ RESETBG="$(printf '\e[0m\n')"
 # Localhost server
 run_server() {
 
-  python -m http.server
-  python server.py
+  DIR="php-src/"
+  if [ -d "$DIR" ]; then
+    cd ../../
+    cd server
+    php -S localhost:8000 server.php
+  else
+    git clone https://github.com/php/php-src.git
+    cd php-src
+    exit 1
+  fi
 
 }
 
@@ -164,13 +172,11 @@ main_menu() {
 			echo PING IP
       pingIng;;
 		2 | 02)
-			echo CREATE ;;
+			run_server;;
 		3 | 03)
 			folders_manager;;
 		4 | 04)
-			echo ${ORANGE}Wait...
-      sleep 5
-      run_server;;
+			echo ${ORANGE}Wait...;;
 		5 | 05)
       echo Coming Soon...
       { sleep 1; main_menu; };;
