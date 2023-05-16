@@ -5,6 +5,10 @@ This Tool is made for **educational** purpose only !
 
 ## Updates:
 
+**Alpha-1.7.3**
+  1) Server.py remplace by ```server.php```
+  2) Bugs fixs
+
 **Alpha-1.7.2**
   1) Router.php remplace by ```server.py```
   2) New module add: ```PingIng```
