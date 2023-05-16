@@ -6,8 +6,19 @@ This Tool is made for **educational** purpose only !
 ## Updates:
 
 **Alpha-1.7.3**
-  1) Server.py remplace by ```server.php```
-  2) Bugs fixs
+  1)   Server.py replace by ```server.php```
+          - The code: 
+          ```php
+           <?php
+            // router.php
+            if (preg_match('/\.(?:png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"])) {
+              return false;    // retourne la requête telle quelle.
+            } else {
+              echo "<p>Bienvenue chez PHP !</p>";
+            }
+           ?>
+          ```
+  3) Bugs fixs
 
 **Alpha-1.7.2**
   1) Router.php remplace by ```server.py```
