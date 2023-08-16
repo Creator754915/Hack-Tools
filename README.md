@@ -5,6 +5,9 @@ This Tool is made for **educational** purpose only !
 
 ## Updates:
 
+**Alpha-1.7.3.5**
+  1) Now you can choice the size of package in PingIng: ```ping -n 100 -l 128```
+
 **Alpha-1.7.3**
   1)   Server.py replace by ```server.php```
           - The code: 
