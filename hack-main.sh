@@ -41,8 +41,10 @@ pingIng() {
 			{ sleep 1; main_menu; };;
 		01 | 1)
 			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Web Address:" site
-			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Number of repeating:" number
-			ping %site% -l %number%;;
+			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Number of requests:" number
+
+      read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Size of requests(default 32 octets):" size
+			ping %site% -n %number% -l %size%;;
 		02 | 2)
 			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Web Address:" site
 			echo Attaque dans 5 secondes
