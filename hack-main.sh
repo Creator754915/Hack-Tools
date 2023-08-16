@@ -40,7 +40,7 @@ pingIng() {
 			echo -ne "\n${GREEN}[${WHITE}+${GREEN}]${CYAN} Returning to main menu..."
 			{ sleep 1; main_menu; };;
 		01 | 1)
-			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Web Address:" site
+			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}IP Address:" site
 			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Number of requests:" number
 
       read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Size of requests(default 32 octets):" size
